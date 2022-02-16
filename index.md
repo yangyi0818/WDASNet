@@ -1,37 +1,77 @@
-## Welcome to GitHub Pages
+## WDASnet weighted-direction-aware speech separation network in multi-people meeting environment
 
-You can use the [editor on GitHub](https://github.com/yangyi0818/WDASNet/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Authors: Yi Yang, Hangting Chen, Pengyuan Zhang
+Key Laboratory of Speech Acoustics and Content Understanding, Institute of Acoustics, Chinese Academy of Sciences, Beijing, China
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+We propose a weighted-direction-aware speech separation network (WDASnet) to achieve a DOA-assisted speech separation on sparsely overlapped mixtures in a multi-people meeting environment. 
+First, based on the Convolutional Recurrent Neural Network (CRNN) DOA-estimation model, we provide a variant system by leveraging a weighted-pooling block which reduces the influence of silent and interference speaker frames. 
+Second, we achieve an end-to-end utterance-wise DOA-estimation. No prior VAD, pre-extraction with adaptation utterance information or post-processing is needed. 
+Third, we take a deep look of our system into multi-people meeting environment.
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Demo (Two speakers Separation)
 
-```markdown
-Syntax highlighted code block
+mixture (overlap=0.5)
 
-# Header 1
-## Header 2
-### Header 3
+<img src="/mix-overlap0.5.png" width="40%">
+<audio src="/mix-overlap0.5.wav" controls="controls"> </audio>
 
-- Bulleted
-- List
+oracle
+<p float="left">
+  <img src="/Oracle-s1.png" width="40%" />
+  <img src="/Oracle-s2.png" width="40%" /> 
+</p>
+<audio src="/Oracle-s1.wav" controls="controls"> </audio> <audio src="/Oracle-s2.wav" controls="controls"> </audio>
 
-1. Numbered
-2. List
+BLSTM sep (sdr=2.39dB)
+<p float="left">
+  <img src="/BLSTM-s1.png" width="40%" />
+  <img src="/BLSTM-s2.png" width="40%" /> 
+</p>
+<audio src="/BLSTM-s1.wav" controls="controls"> </audio> <audio src="BLSTM-s2.wav" controls="controls"> </audio>
 
-**Bold** and _Italic_ and `Code` text
+BLSTM sep with average-pooling DoA estimation (sdr=5.72dB)
+<p float="left">
+  <img src="/Average-pooling-s1.png" width="40%" />
+  <img src="/Average-pooling-s2.png" width="40%" /> 
+</p>
+<audio src="/Average-pooing-s1.wav" controls="controls"> </audio> <audio src="Average-pooing-s2.wav" controls="controls"> </audio>
 
-[Link](url) and ![Image](src)
-```
+BLSTM sep with oracle AF (sdr=13.92dB)
+<p float="left">
+  <img src="/BLSTM-AF-s1.png" width="40%" />
+  <img src="/BLSTM-AF-s2.png" width="40%" /> 
+</p>
+<audio src="/BLSTM-AF-s1.wav" controls="controls"> </audio> <audio src="BLSTM-AF-s2.wav" controls="controls"> </audio>
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+BLSTM sep with proposed weighted-pooling DoA estimation (WDASnet) (sdr=14.62dB)
+<p float="left">
+  <img src="/Proposed-s1.png" width="40%" />
+  <img src="/Proposed-s2.png" width="40%" /> 
+</p>
+<audio src="/Proposed-s1.wav" controls="controls"> </audio> <audio src="Proposed-s2.wav" controls="controls"> </audio>
 
-### Jekyll Themes
+### Example1
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/yangyi0818/WDASNet/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+This illustration is the same with Fig.2 in the paper.
+Visualization of the estimated weight. Three pairs of blocks from left to right refer to speech of target speaker, silent frames and overlapped speech, respectively.
 
-### Support or Contact
+<img src="/Fig2.png" width="40%">
+<audio src="/overlap0.2_4381-1296.wav" controls="controls"> </audio>
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### Example2
+
+Example2 shows the variation of estimated weights in condition of different sirs (-5,0,5dB)
+
+<img src="/overlap0.4-sx408-si1993.png" width="40%">
+<p float="left">
+  <img src="/-5.png" width="30%" />
+  <img src="/0.png" width="30%" /> 
+  <img src="/5.png" width="30%" /> 
+</p>
+<audio src="/overlap0.4-sx408-si1993 -5dB.wav" controls="controls"> </audio> <audio src="/overlap0.4-sx408-si1993 0dB.wav" controls="controls"> </audio> <audio src="/overlap0.4-sx408-si1993 5dB.wav" controls="controls"> </audio>
+
+### Questions
+
+If you have any advice or questions, please contact us.
+

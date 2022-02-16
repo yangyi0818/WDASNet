@@ -1,4 +1,4 @@
-## WDASnet weighted-direction-aware speech separation network in multi-people meeting environment
+## WDASnet
 
 Authors: Yi Yang, Hangting Chen, Pengyuan Zhang
 Key Laboratory of Speech Acoustics and Content Understanding, Institute of Acoustics, Chinese Academy of Sciences, Beijing, China

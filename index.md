@@ -9,7 +9,7 @@ Second, we achieve an end-to-end utterance-wise DOA-estimation. No prior VAD, pr
 Third, we take a deep look of our system into multi-people meeting environment.
 
 
-### Demo (Two speakers Separation)
+### Demos
 
 mixture (overlap=0.5)
 

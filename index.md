@@ -13,13 +13,13 @@ Third, we take a deep look of our system into multi-people meeting environment.
 
 mixture (overlap=0.5)
 
-<img src="mix-overlap0.5.png" width="40%">
+<img src="figs/mix-overlap0.5.png" width="40%">
 <audio src="/wav/mix-overlap0.5.wav" controls="controls"> </audio>
 
 oracle
 <p float="left">
-  <img src="/figs/Oracle-s1.png" width="40%" />
-  <img src="/figs/Oracle-s2.png" width="40%" /> 
+  <img src="figs/Oracle-s1.png" width="40%" />
+  <img src="figs/Oracle-s2.png" width="40%" /> 
 </p>
 <audio src="/Oracle-s1.wav" controls="controls"> </audio> <audio src="/Oracle-s2.wav" controls="controls"> </audio>
 

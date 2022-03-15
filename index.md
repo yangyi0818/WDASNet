@@ -3,7 +3,7 @@
 Authors: Yi Yang, Hangting Chen, Pengyuan Zhang   
 Key Laboratory of Speech Acoustics and Content Understanding, Institute of Acoustics, Chinese Academy of Sciences, Beijing, China    
 
-We propose a Weighted-Direction-Aware speech Separation network (WDASnet) to achieve a DOA-assisted speech separation on sparsely overlapped mixtures in a multi-people meeting environment. First, based on the Convolutional Recurrent Neural Network (CRNN) DOA-estimation model, we provide a variant system by leveraging a weighted-pooling block which reduces the influence of silent and interference speaker frames. Second, we achieve an end-to-end utterance-wise DOA-estimation. No prior VAD, pre- or post-processing is needed. Third, we take a deep look of our system into multi-people meeting environment. Fourth, we analyze the advantages and limitations of this model.   
+We propose a Weighted-Direction-Aware speech Separation network (WDASnet) to achieve a DOA-assisted speech separation on sparsely overlapped mixtures in a multi-people meeting environment. First, based on the Convolutional Recurrent Neural Network (CRNN) DOA-estimation model, we provide a variant system by leveraging a weighted-pooling block which reduces the influence of silent and interference speaker frames. Second, we achieve an end-to-end utterance-wise DOA-estimation. Prior VAD, pre- or post-processing is not needed. Third, we take a deep look of our system into multi-people meeting environment. Fourth, we analyze the advantages and limitations of this model.   
 
 
 ### Demos

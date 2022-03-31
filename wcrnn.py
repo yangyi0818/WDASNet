@@ -48,7 +48,6 @@ class WCRNN(nn.Module):
         )
 
     def forward(self, x):       # x:(b,c,n)
-
         xs = self.stft(x[:,[0],:])[...,1:,:].unsqueeze(1)
         for i in range(1,self.channel):
             xs = torch.cat((xs,self.stft(x[:,[i],:])[...,1:,:].unsqueeze(1)),1) # xs:(b,c,t,f,(real+imag))

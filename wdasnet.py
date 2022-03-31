@@ -33,9 +33,9 @@ class BLSTM_MASK(nn.Module):
         self.ipd_layer = nn.LSTM(input_size=num_bins * 2, hidden_size=num_bins, bidirectional=bidirectional, num_layers=1, batch_first=True)
 
         if (do_doa):
-            self.lstm = nn.LSTM(input_size=num_bins * 3, hidden_size=hidden_size, bidirectional=bidirectional, num_layers=num_layers, batch_first=True)
+            self.lstm = nn.LSTM(input_size=num_bins * 3, hidden_size=hidden_size, dropout=0.4, bidirectional=bidirectional, num_layers=num_layers, batch_first=True)
         else:
-            self.lstm = nn.LSTM(input_size=num_bins * 2, hidden_size=hidden_size, bidirectional=bidirectional, num_layers=num_layers, batch_first=True)
+            self.lstm = nn.LSTM(input_size=num_bins * 2, hidden_size=hidden_size, dropout=0.4, bidirectional=bidirectional, num_layers=num_layers, batch_first=True)
 
         self.mask_layer = nn.Linear(hidden_size * 2, num_bins * 2)
         self.mask_act = nn.Sigmoid()  # sigmoid or relu or softmax
@@ -46,11 +46,10 @@ class BLSTM_MASK(nn.Module):
     def forward(self, x, doa):
         """
         Input:
-            x: b x n x m
+            x: b x c x n
             doa: b x 3 x 2
         """
         doa = torch.atan2(doa[:,1], doa[:,0])
-        x = x.permute(0,2,1) # b x m x n
         mag, pha, feat = self.extractor(x, doa=doa)  # mag & pha : b c f t  feat: b x (c+1) x t
         feat = self.bn(feat).permute(0,2,1)
         B, T, _ = feat.size()

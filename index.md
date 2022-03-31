@@ -61,7 +61,7 @@ Example2 shows the variation of estimated weights in condition of different sirs
 </p>
 <audio src="wav/overlap0.4-sx408-si1993 -5dB.wav" controls="controls"> </audio> <audio src="wav/overlap0.4-sx408-si1993 0dB.wav" controls="controls"> </audio> <audio src="wav/overlap0.4-sx408-si1993 5dB.wav" controls="controls"> </audio>    
     
-### Questions    
+### Contact    
     
-If you have any advice or questions, please feel free to contact us at 1690898218@qq.com    
+If you have any advice or questions, please feel free to contact me!
 
